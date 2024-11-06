@@ -20,8 +20,13 @@ export class Logger{
     fs.unlink("/data/storage/el2/base/haps/entry/files/log.txt")
   }
   async  writeFile(message:string){
-    const timestamp = new Date().toISOString();
-    const logMessage = `${timestamp} - ${message}\n`;
+    //    const timestamp = new Date().toISOString();
+    //    const logMessage = `${timestamp} - ${message}\n`;
+    const localDate = new Date();
+    const offset = 8 * 60; // UTC+8 的偏移量，单位为分钟
+    const localDateString = new Date(localDate.getTime() + offset * 60 * 1000).toISOString();
+
+    const logMessage = `${localDateString} - ${message}\n`;
     try {
       await fs.write(this.logFd, logMessage)
       await fs.fsync(this.logFd)
