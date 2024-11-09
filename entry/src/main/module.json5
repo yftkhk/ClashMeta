@@ -9,6 +9,7 @@
       "tablet",
       "2in1"
     ],
+  "srcEntry": "./ets/myabilitystage/MyAbilityStage.ts",
     "requestPermissions": [{
       "name" : "ohos.permission.INTERNET"
     }],
@@ -26,6 +27,7 @@
         "startWindowIcon": "$media:logo",
         "startWindowBackground": "$color:start_window_background",
         "exported": true,
+        "launchType": "singleton",
         "skills": [
           {
             "entities": [
